@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WebCamScript : MonoBehaviour {
 
-	float zAxis = 0F;
+	float zAxis;
+	public GameObject slider;
+	public Slider sliderVal;
 
 	IEnumerator Start() {
 
@@ -21,9 +24,20 @@ public class WebCamScript : MonoBehaviour {
 			renderer.material.mainTexture = webcamTexture;
 			webcamTexture.Play();
 
-			transform.eulerAngles = new Vector3 (0, 0, zAxis);
+			transform.eulerAngles = new Vector3 (0, 0, 0);
+
+			slider = GetComponent<GameObject>();
+			//sliderVal = slider.GetComponent<Slider> ();
+			Debug.Log ("Parent: " + slider);
+			//Debug.Log ("From webcam:" + sliderVal);
 
 		} else {
 		}
+	}
+
+	void Update() {
+
+		//zAxis = (float)sliderVal.value;
+		transform.eulerAngles = new Vector3 (0, 0, 0);
 	}
 }
