@@ -26,10 +26,9 @@ public class WebCamScript : MonoBehaviour {
 
 			transform.eulerAngles = new Vector3 (0, 0, 0);
 
-			slider = GetComponent<GameObject>();
+			//slider = GetComponent<GameObject>();
 			//sliderVal = slider.GetComponent<Slider> ();
-			Debug.Log ("Parent: " + slider);
-			//Debug.Log ("From webcam:" + sliderVal);
+
 
 		} else {
 		}
@@ -37,7 +36,7 @@ public class WebCamScript : MonoBehaviour {
 
 	void Update() {
 
-		//zAxis = (float)sliderVal.value;
-		transform.eulerAngles = new Vector3 (0, 0, 0);
+		zAxis = float.Parse(sliderVal.value.ToString());
+		transform.eulerAngles = new Vector3 (0, 0, zAxis);
 	}
 }
